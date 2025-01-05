@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --focus-ring-color: 0 123 254;
     --background: 242 242 247;
     --foreground: 0 0 0;
     --card: 255 255 255;
@@ -87,5 +88,10 @@
       --android-input: 55 55 57;
       --android-ring: 39 42 50;
     }
+  }
+
+  [data-focus-visible-added] {
+    outline: 2px solid rgb(var(--focus-ring-color));
+    outline-offset: 2px;
   }
 }

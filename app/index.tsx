@@ -6,6 +6,8 @@ import * as React from 'react';
 import { Linking, useWindowDimensions, View, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import Card from '~/components/Card';
+
 import { Text } from '~/components/nativewindui/Text';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { useHeaderSearchBar } from '~/lib/useHeaderSearchBar';
@@ -57,7 +59,8 @@ function ListEmptyComponent() {
         <Text
           onPress={() => Linking.openURL('https://nativewindui.com')}
           variant="subhead"
-          className="text-primary">
+          className="text-primary"
+        >
           NativeWindUI
         </Text>
         {' website.'}
@@ -81,17 +84,6 @@ function renderItem({ item }: { item: ComponentItem }) {
     <Card title={item.name}>
       <item.component />
     </Card>
-  );
-}
-
-function Card({ children, title }: { children: React.ReactNode; title: string }) {
-  return (
-    <View className="px-4">
-      <View className="gap-4 rounded-xl border border-border bg-card p-4 pb-6 shadow-sm shadow-black/10 dark:shadow-none">
-        <Text className="text-center text-sm font-medium tracking-wider opacity-60">{title}</Text>
-        {children}
-      </View>
-    </View>
   );
 }
 
